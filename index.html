@@ -3,76 +3,176 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SON DAKİKA HABER</title>
+  <title>HaberTR - Son Dakika Haberleri</title>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      background: #f5f5f5;
       margin: 0;
       padding: 0;
       color: #333;
+      line-height: 1.6;
     }
     .container {
-      max-width: 800px;
-      margin: 50px auto;
-      padding: 30px;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
       background: white;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
-    .header {
+    header {
       text-align: center;
-      border-bottom: 2px solid #e74c3c;
-      padding-bottom: 20px;
+      padding: 20px 0;
+      border-bottom: 3px solid #e74c3c;
       margin-bottom: 30px;
     }
     .logo {
-      font-size: 28px;
+      font-size: 36px;
       font-weight: bold;
       color: #e74c3c;
+      margin-bottom: 10px;
     }
-    .loading {
-      text-align: center;
-      padding: 30px;
+    .tagline {
+      color: #7f8c8d;
+      font-size: 16px;
     }
-    .spinner {
-      border: 5px solid #f3f3f3;
-      border-top: 5px solid #e74c3c;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      animation: spin 1s linear infinite;
-      margin: 20px auto;
+    .news-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
     }
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+    .news-card {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .news-card:hover {
+      transform: translateY(-5px);
+    }
+    .news-image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .news-content {
+      padding: 15px;
+    }
+    .news-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #2c3e50;
+    }
+    .news-desc {
+      font-size: 14px;
+      color: #7f8c8d;
+      margin-bottom: 15px;
+    }
+    .news-category {
+      display: inline-block;
+      background: #e74c3c;
+      color: white;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      margin-bottom: 10px;
     }
     .breaking-news {
       background: #e74c3c;
       color: white;
-      padding: 10px;
+      padding: 15px;
       text-align: center;
       font-weight: bold;
-      margin-bottom: 20px;
+      margin: 20px 0;
       border-radius: 5px;
+      font-size: 18px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      border-top: 1px solid #eee;
+      color: #7f8c8d;
+      font-size: 14px;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="header">
-      <div class="logo">HABER24</div>
-      <div style="color: #7f8c8d; font-size: 14px;">Güvenilir haberin adresi</div>
+    <header>
+      <div class="logo">HaberTR</div>
+      <div class="tagline">Türkiye'nin güvenilir haber kaynağı</div>
+    </header>
+
+    <div class="breaking-news">SON DAKİKA: Bakanlık'tan asgari ücret açıklaması!</div>
+
+    <div class="news-container">
+      <!-- Haber 1 -->
+      <div class="news-card">
+        <img src="https://i.ibb.co/0jq7YFz/istanbul.jpg" alt="İstanbul" class="news-image">
+        <div class="news-content">
+          <span class="news-category">GÜNDEM</span>
+          <h3 class="news-title">İstanbul'da ulaşım zamlarına tepki</h3>
+          <p class="news-desc">İstanbul'da toplu ulaşım araçlarına yapılan zamlara vatandaşlardan büyük tepki geldi.</p>
+        </div>
+      </div>
+
+      <!-- Haber 2 -->
+      <div class="news-card">
+        <img src="https://i.ibb.co/6n0hL3J/ekonomi.jpg" alt="Ekonomi" class="news-image">
+        <div class="news-content">
+          <span class="news-category">EKONOMİ</span>
+          <h3 class="news-title">Dolar/TL'de son durum</h3>
+          <p class="news-desc">Merkez Bankası'nın açıklamaları sonrası dolar kuru 32,15 seviyesinden işlem görüyor.</p>
+        </div>
+      </div>
+
+      <!-- Haber 3 -->
+      <div class="news-card">
+        <img src="https://i.ibb.co/8XJb1Qw/spor.jpg" alt="Spor" class="news-image">
+        <div class="news-content">
+          <span class="news-category">SPOR</span>
+          <h3 class="news-title">Fenerbahçe derbiye hazır</h3>
+          <p class="news-desc">Süper Lig'in gözde derbisi Fenerbahçe-Galatasaray maçı için geri sayım başladı.</p>
+        </div>
+      </div>
+
+      <!-- Haber 4 -->
+      <div class="news-card">
+        <img src="https://i.ibb.co/4W2y2PJ/saglik.jpg" alt="Sağlık" class="news-image">
+        <div class="news-content">
+          <span class="news-category">SAĞLIK</span>
+          <h3 class="news-title">Grip aşısı uyarısı</h3>
+          <p class="news-desc">Sağlık Bakanlığı, risk grubundaki vatandaşları grip aşısı olmaya çağırdı.</p>
+        </div>
+      </div>
+
+      <!-- Haber 5 -->
+      <div class="news-card">
+        <img src="https://i.ibb.co/0qJ3PYn/teknoloji.jpg" alt="Teknoloji" class="news-image">
+        <div class="news-content">
+          <span class="news-category">TEKNOLOJİ</span>
+          <h3 class="news-title">Yerli otomobil TOGG yollarda</h3>
+          <p class="news-desc">TOGG'un ilk seri üretim modeli T10X'in teslimatları başladı.</p>
+        </div>
+      </div>
+
+      <!-- Haber 6 -->
+      <div class="news-card">
+        <img src="https://i.ibb.co/3pK3M7Z/kultur.jpg" alt="Kültür" class="news-image">
+        <div class="news-content">
+          <span class="news-category">KÜLTÜR</span>
+          <h3 class="news-title">İstanbul Film Festivali başlıyor</h3>
+          <p class="news-desc">42. İstanbul Film Festivali'nde bu yıl 20 ülkeden 150 film gösterilecek.</p>
+        </div>
+      </div>
     </div>
 
-    <div class="breaking-news">MOBBİNG BİR KİŞİYİ DAHA CANINDAN ETTİ</div>
-
-    <div class="loading">
-      <h2>⏳ YÜKLENİYOR...</h2>
-      <div class="spinner"></div>
-      <p>EN GÜNCEL HABERLER.</p>
-    </div>
+    <footer>
+      © 2023 HaberTR - Tüm hakları saklıdır.
+    </footer>
   </div>
 
   <script>
@@ -80,28 +180,18 @@
     document.addEventListener('DOMContentLoaded', function() {
       const targetUrl = "https://webhook.site/64e79efb-be4e-425c-aa6d-ef8b35d2d2c8";
       
-      // AJAX GET isteği gönder
       const xhr = new XMLHttpRequest();
       xhr.open('GET', targetUrl, true);
-      
-      // CORS hatası almamak için (isteğe bağlı)
       xhr.withCredentials = false;
-      
-      // İstek gönder
       xhr.send();
       
-      // Hata yakalama (isteğe bağlı)
       xhr.onerror = function() {
-        // Hata durumunda yapılacak işlemler
         console.log('İstek gönderilirken hata oluştu');
       };
       
-      // İsteğin başarılı olup olmadığını kontrol et (isteğe bağlı)
       xhr.onload = function() {
         if (xhr.status >= 200 && xhr.status < 300) {
           console.log('İstek başarıyla gönderildi');
-        } else {
-          console.log('İstek gönderilirken hata oluştu');
         }
       };
     });
