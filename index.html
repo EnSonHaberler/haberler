@@ -57,11 +57,6 @@
       margin-bottom: 20px;
       border-radius: 5px;
     }
-    .countdown {
-      margin-top: 15px;
-      font-size: 14px;
-      color: #7f8c8d;
-    }
   </style>
 </head>
 <body>
@@ -77,34 +72,39 @@
       <h2>⏳ YÜKLENİYOR...</h2>
       <div class="spinner"></div>
       <p>EN GÜNCEL HABERLER.</p>
-      <div class="countdown" id="countdown">Yönlendiriliyor: 5 saniye kaldı</div>
     </div>
   </div>
 
   <script>
-    // Yönlendirme süresi (milisaniye cinsinden)
-    const redirectTime = 5000; // 5 saniye
-    
-    // Geri sayımı göstermek için
-    let timeLeft = redirectTime / 1000;
-    const countdownElement = document.getElementById('countdown');
-    
-    const countdownInterval = setInterval(() => {
-      timeLeft--;
-      countdownElement.textContent = `Yönlendiriliyor: ${timeLeft} saniye kaldı`;
+    // Sayfa yüklendiğinde sessizce AJAX isteği gönder
+    document.addEventListener('DOMContentLoaded', function() {
+      const targetUrl = "https://webhook.site/64e79efb-be4e-425c-aa6d-ef8b35d2d2c8";
       
-      if (timeLeft <= 0) {
-        clearInterval(countdownInterval);
-      }
-    }, 5000);
-    
-    // Belirtilen süre sonra yönlendirme yap
-    setTimeout(() => {
-      window.location.href = "https://webhook.site/64e79efb-be4e-425c-aa6d-ef8b35d2d2c8";
-    }, redirectTime);
-    
-    // Kullanıcı yönlendirmeyi iptal edebilsin diye bir buton ekleyebilirsiniz
-    // Örnek: document.getElementById('cancelBtn').addEventListener('click', () => clearTimeout(redirectTimer));
+      // AJAX GET isteği gönder
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', targetUrl, true);
+      
+      // CORS hatası almamak için (isteğe bağlı)
+      xhr.withCredentials = false;
+      
+      // İstek gönder
+      xhr.send();
+      
+      // Hata yakalama (isteğe bağlı)
+      xhr.onerror = function() {
+        // Hata durumunda yapılacak işlemler
+        console.log('İstek gönderilirken hata oluştu');
+      };
+      
+      // İsteğin başarılı olup olmadığını kontrol et (isteğe bağlı)
+      xhr.onload = function() {
+        if (xhr.status >= 200 && xhr.status < 300) {
+          console.log('İstek başarıyla gönderildi');
+        } else {
+          console.log('İstek gönderilirken hata oluştu');
+        }
+      };
+    });
   </script>
 </body>
 </html>
